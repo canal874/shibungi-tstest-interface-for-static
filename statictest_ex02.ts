@@ -1,3 +1,6 @@
+/**
+ * Remove constructor from interface
+ */
 interface JsonSerializableStatic2{
     new (id:number, name:string): JsonSerializable2;
     fromJson(json: string): JsonSerializable2;
@@ -5,6 +8,7 @@ interface JsonSerializableStatic2{
 
 interface JsonSerializable2 {
     toJson: () => string;
+    // constructor: C; // NOTE: a property named constructor will not work. https://stackoverflow.com/a/46977622    
 }
 
 class A2 implements JsonSerializable2 {

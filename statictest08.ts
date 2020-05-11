@@ -35,10 +35,17 @@ interface CalcInterfaceStatic08 extends Type<CalcInterface08>{
 /**
  * @bindStaticAndInstance<T extends new (...args: any[]) => void>() 
  * is a facrtory function of 'class decorator'.
+ * 
  * Set the compiler option experimentalDecorators to true in tsconfig.json
  * to use class decorator.
  * 
- * <T extends new (...args: any[]) => void> should be used instead of <T>
+ * NOTE 1: Using generic function directly as a decorator causes error.
+ *    e.g.) const bindStaticAndInstance = <T>(_ctor:T): T => _ctor;
+ *          @bindStaticAndInstance<CalcInterfaceStatic08>   // Error. 'Declaration expected.'
+ *  Using decorator factory is a workaround.
+ *  See https://github.com/microsoft/TypeScript/issues/6173#issuecomment-166155136
+ * 
+ * NOTE 2: <T extends new (...args: any[]) => void> should be used instead of <T>
  */
 function bindStaticAndInstance<T extends new (...args: any[]) => any>(): (c: T) => void {
     return (_ctor: T): void => {};

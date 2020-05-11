@@ -1,8 +1,9 @@
 /**
  * This is revised version of the original code https://github.com/Microsoft/TypeScript/issues/13462#issuecomment-272669082
- * by referring to https://www.typescriptlang.org/docs/handbook/interfaces.html#difference-between-the-static-and-instance-sides-of-classes
- * Original code does not work expected. 
+ * The original code does not work expected. 
  */
+export {}
+
 interface JsonSerializableStatic<C extends new (...args: any[]) => JsonSerializable<C>> {
     new (id:number, name:string): JsonSerializable<C>;
     fromJson(json: string): JsonSerializable<C>;
