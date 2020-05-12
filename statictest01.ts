@@ -59,7 +59,7 @@ yourCalc.mul(7); // 35
 
 Calc.meter2yard(7); // 7.655293088363955
 
-// 'new' is still allowed to create new instance.
+// 'new' is still allowed to create a new instance.
 // If you don't like it, use 'private constructor(_x: number) { this.x = _x; }'.
 let ourCalc = new Calc(10);
 ourCalc.mul(7); // 70
